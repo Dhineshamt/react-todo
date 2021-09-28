@@ -1,8 +1,17 @@
 import React from 'react';
+import TasklistHOC from './TasklistHOC';
+import Task from './TaskComponent';
 
+const taskList = [{taskName: 'Wakeup', taskStatus: "Inprogress"}, {taskName: 'Buy veggy', taskStatus: "Submit"}] ;
+const HocComp = TasklistHOC(Task, taskList);
 export class Todo extends React.Component {
+     
     render() {
-        return <h1>To Do</h1>
+        return (
+            <div>
+                <HocComp/>
+            </div>
+        )
     }
     
 }
