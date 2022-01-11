@@ -19,14 +19,23 @@ class Task extends React.Component {
 
     taskRow() {
         // if (this.props.data instanceof Array) {
-            return this.state.data.map(function (object, i) {
-                return (<div>
-                    <label>{object.task}</label>
-                    <label>{object.status}</label>
+        return this.state.data.map(function (object, i) {
+            return (
+                <div className="task">
+                    <div className="task-title">
+                        <label>{object.task}</label>
+                    </div>
+                    <div className="task-status">
+                        <label>{object.status}</label>
+                    </div>
+                    
+
+
+
                     <button>Update</button>
                 </div>
-                )
-            })
+            )
+        })
         // }
 
     }

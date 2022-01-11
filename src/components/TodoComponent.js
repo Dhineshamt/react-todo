@@ -8,7 +8,8 @@ export class Todo extends React.Component {
      
     render() {
         return (
-            <div>
+            <div className="center-text">
+                <h1 className="title task">Lists</h1>
                 <HocComp/>
             </div>
         )
