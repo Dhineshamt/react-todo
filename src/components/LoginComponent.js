@@ -1,8 +1,9 @@
 import React from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
+import { withRouter } from 'react-router-dom';
 
-export class Login extends React.Component {
+class Login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -19,12 +20,13 @@ export class Login extends React.Component {
     }
 
     handleSubmit(event) {
-        alert(`'Submitted' ${this.state.userName}, ${this.state.password}`);
+        // alert(`'Submitted' ${this.state.userName}, ${this.state.password}`);
         event.preventDefault();
+        this.props.history.push('/todo');
     }
-
     render() {
         return (
+            
             /*
             //   <form>
             //     <label>
@@ -38,32 +40,25 @@ export class Login extends React.Component {
             //     <Button onClick={this.handleSubmit}> Submit </Button>
             //   </form>
             */
-
-            <div class='container'>
-                <div class='col-6'></div>
-                <div class='col-6'>
-                    <Form>
+            <div className='container text-center w-25 block-example mt-3 p-4 form-content' >         
+                    <Form >
                         <Form.Group className="mb-3" controlId="formBasicEmail">
-                            <Form.Label>Email address</Form.Label>
-                            <Form.Control type="email" placeholder="Enter email" />
-                            <Form.Text className="text-muted">
-                                We'll never share your email with anyone else.
-                            </Form.Text>
+                            <Form.Label >Email address</Form.Label>
+                            <Form.Control className='text-center' type="email" placeholder="Enter email" />
                         </Form.Group>
 
                         <Form.Group className="mb-3" controlId="formBasicPassword">
                             <Form.Label>Password</Form.Label>
-                            <Form.Control type="password" placeholder="Password" />
+                            <Form.Control className='text-center' type="password" placeholder="Password" />
                         </Form.Group>
-                        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                            <Form.Check type="checkbox" label="Check me out" />
-                        </Form.Group>
-                        <Button variant="primary" type="submit">
+
+                        <Button onClick={this.handleSubmit} variant="primary" type="submit">
                             Submit
                         </Button>
                     </Form>
                 </div>
-            </div>
         );
     }
 }
+
+export default withRouter(Login);
